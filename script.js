@@ -7,6 +7,15 @@ document.addEventListener("mousemove", (e) => {
     y = -y * .1;
     cube.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
 });
+document.addEventListener("touchmove", (e) => {
+    let cube = document.querySelector(".cube");
+    let x = e.clientX - window.innerWidth / 2;
+    let y = e.clientY - window.innerHeight / 2;
+    x = x * .1;
+    y = -y * .1;
+    cube.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+});
+
 
 
 // ///////////////stars
