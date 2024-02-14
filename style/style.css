@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+    font-family: cursive, Geneva, Tahoma, sans-serif;
+    color: red;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    cursor: crosshair;
+}
+
+.canvas,
+.cube .face,
+.face .icon-heart,
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cube,
+.cube .face,
+section i,
+.hpv,
+.hpv::after {
+    position: absolute;
+}
+
+.canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    perspective: 850px;
+}
+
+/* ------------ Cube ---------- */
+.cube {
+    max-width: 80%;
+    width: 200px;
+    height: 200px;
+    transform-origin: 50% 50% 150px;
+    transform-style: preserve-3d;
+    transition: all .5s ease-out;
+    z-index: 100;
+}
+
+.cube .face {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: .5px solid rgb(204, 0, 0);
+}
+
+/* --- heart-center-cube --- */
+.face .icon-heart {
+    width: 80%;
+    height: 60%;
+}
+
+.face .icon-heart i {
+    font-size: 80px;
+    background-color: transparent;
+    animation: heart 1s linear infinite;
+}
+
+
+@keyframes heart {
+    0% {
+        font-size: 100px;
+    }
+
+    50% {
+        font-size: 80px;
+    }
+
+    100% {
+        font-size: 100px;
+
+    }
+}
+
+/* -- side fron -- */
+.cube .face:nth-child(1) {
+    transform: translateZ(200px);
+}
+
+/* -- side right -- */
+.cube .face:nth-child(2) {
+    transform-origin: center right;
+    transform: rotateY(90deg);
+}
+
+/* -- side back -- */
+.cube .face:nth-child(3) {
+    transform-origin: center center;
+    transform: rotateY(180deg);
+}
+
+/* -- side left -- */
+.cube .face:nth-child(4) {
+    transform-origin: center left;
+    transform: rotateY(-90deg);
+}
+
+/* -- side top -- */
+.cube .face:nth-child(5) {
+    transform-origin: top center;
+    transform: rotateX(90deg);
+}
+
+/* -- side bottom -- */
+.cube .face:nth-child(6) {
+    transform: rotateX(-90deg);
+    transform-origin: bottom center;
+}
+
+/* -- center cube -- */
+.cube .face:nth-child(7) {
+    transform: translateZ(100px);
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+/* ---- Stars ---- */
+section>i {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 4px rgb(255, 255, 255);
+    border-radius: 50%;
+    animation: animate 5s linear infinite;
+}
+
+
+@keyframes animate {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        opacity: 1;
+    }
+}
+
+/* ------- text valentine day -------- */
+.hpv {
+    top: 20px;
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    max-width: 90%;
+
+}
+
+@media screen and (max-width: 300px) {
+    .hpv {
+        font-size: 25px;
+    }
+}
+
+.hpv::after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    border-left: 2px solid red;
+    animation: hpvText 15s linear infinite;
+}
+
+@keyframes hpvText {
+    30% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+
+/* ------------------loadig----------------- */
+.loading {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    z-index: 10000000;
+}
+
+.loading .logoLoad i {
+    font-size: 60px;
+    animation: heartLogo 1s linear infinite;
+}
+
+@keyframes heartLogo {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+
+    }
+}
