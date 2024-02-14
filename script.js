@@ -8,13 +8,15 @@ document.addEventListener("mousemove", (e) => {
     cube.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
 });
 document.addEventListener("touchmove", (e) => {
-    let cube = document.querySelector(".cube");
-    let x = e.clientX - window.innerWidth / 2;
-    let y = e.clientY - window.innerHeight / 2;
-    x = x * .1;
-    y = -y * .1;
-    cube.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-});
+
+        let cube = document.querySelector(".cube");
+        let x = e.touches[0].clientX - window.innerWidth / 2;
+        let y = e.touches[0].clientY - window.innerHeight / 2;
+        x = x * .1;
+        y = -y * .1;
+        cube.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    })
+
 
 
 
